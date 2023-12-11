@@ -21,7 +21,7 @@ int main(void)
 			exit(0);
 		}
 		getln_count = getline(&buffer, &bufsize, stdin);
-		if (getln == -1)
+		if (getln_count == -1)
 		{
 			free(buffer);
 			if (isatty(STDIN_FILENO) != 0)
