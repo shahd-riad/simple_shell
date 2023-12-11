@@ -51,5 +51,6 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 	}
 	free(command);
 	}
+	(void)exitstatus;
 	free_grid(tokenized);
 }
