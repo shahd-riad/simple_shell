@@ -7,7 +7,7 @@
 char *_getenv (char *name)
 {
 	char *my_env;
-	int i;
+	int i = 0;
 	
 	while (environ[i] != '\0')
 	{
@@ -30,7 +30,7 @@ char *_getenv (char *name)
 **/
 char **tokenize(char *buffer)
 {
-	int tokens, i;
+	int tokens, i = 0;
 	char *token, **token_list;
 
 	tokens = count_words(buffer);
@@ -39,7 +39,7 @@ char **tokenize(char *buffer)
 		return (NULL);
 		
 	token = strtok(buffer, DELIM);
-	token_list = malloc(sizeof(char*) * (tokens + 1);
+	token_list = malloc(sizeof(char*) * (tokens + 1));
 
 	while (token != NULL)
 	{
@@ -76,7 +76,7 @@ void free_grid(char **grid)
 **/
 char  *execute1(char **tokens, char *path)
 {
-	char *token, *combined, *temp;
+	char *token = NULL, *combined = NULL, *temp = NULL;
 	char s[2] = ":";
 	struct stat st;
 

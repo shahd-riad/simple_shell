@@ -7,7 +7,8 @@
 
 int main(void)
 {
-	char *prompt = "shell$ ", *buffer, *mypath, **tokenized, *command;
+	char *prompt = "shell$ ", *buffer = NULL, *mypath = NULL, 
+	**tokenized = NULL, *command = NULL;
 	size_t bufsize = 0;
 	int written = 0, getln_count;
 	
