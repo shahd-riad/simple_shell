@@ -60,6 +60,7 @@ char *_strchr(char *s, char c)
 int word_len(char *word)
 {
 	int length = 0;
+	
 	while (*word != '\0' && (*word) != ' ')
 	{
 		length++;
