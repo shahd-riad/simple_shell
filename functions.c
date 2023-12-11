@@ -4,7 +4,7 @@
   * @name: command coming
   * Return: environment variable
 **/
-char *_getenv (char *name)
+char *_getenv(char *name)
 {
 	char *my_env;
 	int i = 0;
