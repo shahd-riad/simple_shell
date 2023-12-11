@@ -81,10 +81,10 @@ char  *execute1(char **tokens, char *path)
 	struct stat st;
 
 	/* checks if the process is exectuable on its own aka has the full path */
-	if (stat (tokens[0], &st) == 0)
+	if (stat(tokens[0], &st) == 0)
 	{
 		combined = malloc(sizeof(char) * (_strlen(tokens[0]) + 1));
-		combined = strcpy(temp, tokens[0]);
+		combined = strcpy(combined, tokens[0]);
 		return (combined);
 	}
 	else
