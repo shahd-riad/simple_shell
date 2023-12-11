@@ -92,17 +92,17 @@ int word_len(char *word)
 **/
 int count_words(char *text)
 {
-    int word_count = 0;
-    int in_word = 0;
-	char *c;
+    int index = 0, words = 0, len = 0;
 
-    for (c = text; *c != '\0'; ++c) {
-        if ((*c) != ' ' && !in_word) {
-            in_word = 1;
-            word_count++;
-        } else if ((*c) == ' ' && in_word) {
-            in_word = 0;
-        }
-    }
-    return word_count;
+	for (index = 0; *(str + index); index++)
+		len++;
+	for (index = 0; index < len; index++)
+	{
+		if (*(str + index) != ' ')
+		{
+			words++;
+			index += word_len(str + index);
+		}
+	}
+	return (words);
 }
