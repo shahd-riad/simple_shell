@@ -12,23 +12,17 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 	 int child_pid = 0, status, exitstatus = 0;
 
   if (tokenized[0] != NULL && (_strcmp(tokenized[0], "exit") == 0))
-  {
-    _puts("\n"); 
-    free_grid(tokenized);
-    free(buffer);
-    exit(0);
-  }
-
-  /* Retrieve PATH environment variable only once */
-  mypath = _getenv("PATH");
-
-  /* Find the executable file */
-  command = execute1(tokenized, mypath);
- 
+	{
+		_puts("\n");
+		free_grid(tokenized);
+		free(buffer);
+		exit(0);
+	}
+	mypath = _getenv("PATH");
+	command = execution(tokenized, mypath);
 	if (command != NULL)
 	{
 		child_pid = fork();
-
 		if (child_pid == -1)
 		{
 			return;
@@ -39,14 +33,13 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 		}
 		free(command);
 		wait(&status);
-
 		if (WIFEXITED(status))
 		{
 		exitstatus = WEXITSTATUS(status);
 		}
 	}
 	else
-		printerror(2, tokenized);
+		printerror(2, tokenized);	
 	(void)exitstatus;
 	free_grid(tokenized);
 }
