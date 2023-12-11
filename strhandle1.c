@@ -1,12 +1,10 @@
 #include "shell.h"
 
 /**
- *  * _putchar - function that prints a character c to stdout
- *   * @c: character to be printed
- *    *
- *     * Return: The write function which is responsible for printing @c
- *      */
-
+ * _putchar - function that prints a character c to stdout
+ * @c: character to be printed
+ * Return: The write function which is responsible for printing @c
+ */
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
@@ -61,12 +59,13 @@ char *_strchr(char *s, char c)
 **/
 int word_len(char *word)
 {
-  int length = 0;
-  while (*word != '\0' && (*word) != ' ') {
-    length++;
-    word++;
-  }
-  return length;
+	int length = 0;
+	while (*word != '\0' && (*word) != ' ')
+	{
+		length++;
+		word++;
+	}
+	return (length);
 }
 /**
  * count_words - functin to count number of words
@@ -75,7 +74,7 @@ int word_len(char *word)
 **/
 int count_words(char *str)
 {
-    int index = 0, words = 0, len = 0;
+	int index = 0, words = 0, len = 0;
 
 	for (index = 0; *(str + index); index++)
 		len++;
