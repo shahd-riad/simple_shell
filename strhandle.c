@@ -101,3 +101,58 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (sum1 - sum2);
 }
+/**
+ *_strcat - Write a function that concatenates two strings.
+ *
+ *@dest: This is the output dest
+ *@src: This is the input source
+ *
+ * Return: This return to dest, that concatenates two strings
+ */
+char *_strcat(char *dest, char *src)
+{
+	int length, i;
+
+	length = 0;
+	i = 0;
+	while (dest[length] != '\0')
+	{
+		length++;
+	}
+	for (i = 0; src[i] != '\0'; ++i, length++)
+	{
+		dest[length] = src[i];
+	}
+	dest[length] = '\0';
+	return (dest);
+}
+/**
+ * _strstr - function to find a string within another string
+ * @haystack: string where we will search
+ * @needle: string to find
+ * Return: string found
+ **/
+char *_strstr(char *haystack, const char *needle)
+{
+	char *c;
+
+	while (*haystack)
+	{
+		while (*needle == *haystack)
+		{
+			haystack++, needle++;
+		}
+		if (*needle == '\0')
+		{
+			if (*haystack == '=')
+			{
+				haystack++;
+				c = haystack;
+				return (c);
+			}
+			return (NULL);
+		}
+		haystack++;
+	}
+	return (NULL);
+}

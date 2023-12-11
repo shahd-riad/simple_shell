@@ -70,3 +70,38 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 	return (ptr);
 }
+/**
+ * word_len - function to count number of letters of
+ * each word
+ * @str: word
+ * Return: number of letters of tje word
+**/
+int word_len(char *word)
+{
+  int length = 0;
+  while (*word != '\0' && (*word) != ' ') {
+    length++;
+    word++;
+  }
+  return length;
+}
+/**
+ * count_words - functin to count number of words
+ * @text: string
+ * Return: number of words
+**/
+int count_words(char *text)
+{
+    int word_count = 0;
+    int in_word = 0;
+
+    for (char *c = text; *c != '\0'; ++c) {
+        if ((*c) != ' ' && !in_word) {
+            in_word = 1;
+            word_count++;
+        } else if ((*c) == ' ' && in_word) {
+            in_word = 0;
+        }
+    }
+    return word_count;
+}

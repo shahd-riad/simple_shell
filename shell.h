@@ -22,7 +22,22 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strchr(char *s, char c);
+char *_strstr(char *haystack, const char *needle);
+int word_len(char *word);
+int count_words(char *text);
 char *_memset(char *s, char b, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void execute(char **tokenized, char *command, char *mypath, char *buffer);
+char *_getenv (char *name);
+char **tokenize(char *buffer);
+void free_grid(char **grid);
+char  *execute1(char **tokens, char *path);
+void printerror(int error, char **command);
+
+/**---Delimitator---**/
+#define DELIM " ,!¡¿?\'\"\n\t"
+
+/**---Global variable environ---**/
+extern char **environ;
 
 #endif
