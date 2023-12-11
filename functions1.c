@@ -19,7 +19,7 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 		exit(0);
 	}
 	mypath = _getenv("PATH");
-	command = execution(tokenized, mypath);
+	command = execute1(tokenized, mypath);
 	if (command != NULL)
 	{
 		child_pid = fork();
