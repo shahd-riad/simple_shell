@@ -77,7 +77,7 @@ void free_grid(char **grid)
 char  *execute1(char **tokens, char *path)
 {
 	char *token = NULL, *combined = NULL, *temp = NULL;
-	char s[2] = ":";
+	const char s[2] = ":";
 	struct stat st;
 
 	/* checks if the process is exectuable on its own aka has the full path */
