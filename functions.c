@@ -6,25 +6,25 @@
 **/
 char *_getenv(char *name)
 {
-	char *my_env;
+	char *env;
 	int i = 0;
 	
-	while (environ[i] != NULL)
+	while (*environ[i] != NULL)
 	{
-		my_env = _strstr(environ[i], name);
+		env = _strstr(environ[i], name);
 		
-		if (my_env == NULL)
+		if (env == NULL)
 			i++;
 
 		else
-			return (my_env);
+			return (env);
 		
 	}
 	return (NULL);
 }
 
 /**
-  * tokenize - functino to tokenize the command given
+  * tokenize - functin to tokenize the command given
   * @buffer: command given
   * Return: array of strings tokenized
 **/
