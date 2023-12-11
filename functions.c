@@ -95,11 +95,13 @@ char  *execute1(char **tokens, char *path)
 
 		while (token != NULL)
 		{
-			combined = malloc(sizeof(char) * (_strlen(token) + _strlen(tokens[0]) + 2));
+			combined = malloc(sizeof(char) * (_strlen(token) + _strlen(tokens[0]) + 1));
 			combined = _strcpy(combined, token);
 			combined = _strcat(combined, tokens[0]);
 			if (stat(combined, &st) == 0)
+			{
 				return (combined);
+			}
 			token = strtok(NULL, s);
 			free(combined);
 		}
