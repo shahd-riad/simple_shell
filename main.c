@@ -17,7 +17,7 @@ int main(void)
 		if (isatty(STDIN_FILENO) == 1)
 		{
 			written = write(STDOUT_FILENO, prompt, 7);
-			if (writecount == -1)
+			if (written == -1)
 			exit(0);
 		}
 		getln_count = getline(&buffer, &bufsize, stdin);
@@ -31,7 +31,7 @@ int main(void)
 		tokenized = tokenize(buffer);
 		if (tokenized[0] != NULL)
 		{
-			execution2(tokenized, command, mypath, buffer);
+			execute(tokenized, command, mypath, buffer);
 		}
 		else
 			free(tokenized);

@@ -94,8 +94,9 @@ int count_words(char *text)
 {
     int word_count = 0;
     int in_word = 0;
+	char *c;
 
-    for (char *c = text; *c != '\0'; ++c) {
+    for (c = text; *c != '\0'; ++c) {
         if ((*c) != ' ' && !in_word) {
             in_word = 1;
             word_count++;
