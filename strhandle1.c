@@ -1,21 +1,34 @@
 #include "shell.h"
 
 /**
- * _memset - fills memory with a constant byte
- * @s: memory area to fill in
- * @b: constant byte to fill s with
- * @n: number of bytes to write
- *
- * Return: a pointer to the memory area s
-*/
-char *_memset(char *s, char b, unsigned int n)
+ *  * _putchar - function that prints a character c to stdout
+ *   * @c: character to be printed
+ *    *
+ *     * Return: The write function which is responsible for printing @c
+ *      */
+
+int _putchar(char c)
 {
-	unsigned int i;
+	return (write(1, &c, 1));
+}
 
-		for (i = 0; i < n; i++)
-		s[i] = b;
 
-return (s);
+/**
+ *  * _puts - prints a string, to stdout
+ *   * @str: value to evaluate.
+ *    * Return: void
+*/
+
+void _puts(char *str)
+{
+		int l;
+
+		l = 0;
+		while (*(str + l) != '\0')
+		{
+			_putchar(str[l]);
+			l++;
+		}
 }
 
 /**
@@ -39,36 +52,6 @@ char *_strchr(char *s, char c)
 		return (s + i);
 
 	return (NULL);
-}
-/**
- *  * _strncpy - copies a string
- *   * @dest: string to copy to
- *    * @src: string to copy from
- *     * @n: maximum number of characters to copy from src
- *      *
- *       * Description:
- *        * works exactly like strncpy from <string.h>
- *         *
- *          * Return: a pointer to the resulting string dest
-*/
-char *_strncpy(char *dest, char *src, int n)
-{
-	char *ptr;
-	int i;
-
-	i = 0;
-	ptr = dest;
-	while (*src && (i < n))
-	{
-		*dest++ = *src++;
-		i++;
-	}
-	while (i < n)
-	{
-		*dest++ = '\0';
-		i++;
-	}
-	return (ptr);
 }
 /**
  * word_len - function to count number of letters of

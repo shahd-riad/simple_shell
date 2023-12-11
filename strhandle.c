@@ -1,37 +1,6 @@
 #include "shell.h"
 
 /**
- *  * _putchar - function that prints a character c to stdout
- *   * @c: character to be printed
- *    *
- *     * Return: The write function which is responsible for printing @c
- *      */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-
-/**
- *  * _puts - prints a string, to stdout
- *   * @str: value to evaluate.
- *    * Return: void
-*/
-
-void _puts(char *str)
-{
-		int l;
-
-		l = 0;
-		while (*(str + l) != '\0')
-		{
-			_putchar(str[l]);
-			l++;
-		}
-}
-
-/**
  *  * _strlen - returns the length of a string.
  *   * by traversing throughout the values of string s
  *    * as it increments variable length and stops the loop at the end of
