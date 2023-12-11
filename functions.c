@@ -83,13 +83,13 @@ char  *execute1(char **tokens, char *path)
 	/* checks if the process is exectuable on its own aka has the full path */
 	if (stat (tokens[0], &st) == 0)
 	{
-		combined = malloc(sizeof(char) * _strlen(tokens[0] + 1);
+		combined = malloc(sizeof(char) * _strlen(tokens[0] + 1));
 		combined = strcpy(temp, tokens[0]);
 		return (combined);
 	}
 	else
 	{
-		temp = malloc(sizeof(char) * _strlen(path + 1);
+		temp = malloc(sizeof(char) * _strlen(path + 1));
 		temp = _strcpy(temp, path);
 		token = strtok(temp, s);
 
