@@ -44,13 +44,12 @@ void _puts(char *str)
 
 int _strlen(char *s)
 {
-	int len = 0;
+	int l;
 
-	while (*s != '\0')
+	for (l = 0; s[l] != '\0'; l++)
 	{
-		s++;
-		len++;											}
-	return (len);
+	}
+	return (l);
 }
 
 /**
@@ -61,17 +60,14 @@ int _strlen(char *s)
 */
 char *_strcpy(char *dest, char *src)
 {
-	char *ptr;
+	int i;
 
-	ptr = dest;
-	while (*src != '\0')
+	for (i = 0; src[i] != '\0'; i++)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		dest[i] = src[i];
 	}
-	*dest = '\0';
-	return (ptr);
+	dest[i] = src[i];
+	return (dest);
 }
 /**
  *  * _strcmp - compares 2 strings
@@ -85,21 +81,12 @@ char *_strcpy(char *dest, char *src)
 */
 int _strcmp(char *s1, char *s2)
 {
-	int sum1;
-	int sum2;
-	int len;
+	int i;
 
-	sum1 = 0;
-	sum2 = 0;
-	for (len = 0; s1[len] != '\0'; len++)
-	{
-		sum1 += (int)s1[len];
-	}
-	for (len = 0; s2[len] != '\0'; len++)
-	{
-		sum2 += (int)s2[len];
-	}
-	return (sum1 - sum2);
+	for (i = 0; s1[i] == s2[i]; i++)
+		if (s1[i] == '\0')
+			return (0);
+	return (s1[i] - s2[i]);
 }
 /**
  *_strcat - Write a function that concatenates two strings.
@@ -111,19 +98,19 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strcat(char *dest, char *src)
 {
-	int length, i;
+	int a, b;
 
-	length = 0;
-	i = 0;
-	while (dest[length] != '\0')
+	for (a = 0; dest[a] != '\0'; a++)
 	{
-		length++;
 	}
-	for (i = 0; src[i] != '\0'; ++i, length++)
+	dest[a] = '/';
+	a++;
+	for (b = 0; src[b] != '\0'; b++)
 	{
-		dest[length] = src[i];
+		dest[a] = src[b];
+		a++;
 	}
-	dest[length] = '\0';
+	dest[a] = '\0';
 	return (dest);
 }
 /**
