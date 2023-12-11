@@ -70,7 +70,7 @@ void free_grid(char **grid)
 
 /**
  * execute1 - function to execute child process
- * @tokeni: tokenized array
+ * @tokens: tokenized array
  * @path: path
  * Return: void
 **/
