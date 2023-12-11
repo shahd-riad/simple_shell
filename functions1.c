@@ -19,41 +19,37 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
     exit(0);
   }
 
-  // Retrieve PATH environment variable only once
+  /* Retrieve PATH environment variable only once */
   mypath = _getenv("PATH");
 
-  // Find the executable file
-  char *command = execute1(tokenized, mypath);
-
-  if (command != NULL)
-  {
-    child_pid = fork();
-
-    if (child_pid == -1)
+  /* Find the executable file */
+  command = execute1(tokenized, mypath);
+ 
+	if (command != NULL)
 	{
-      free(command);
-      free_grid(tokenized);
-      return;
-    }
+		child_pid = fork();
 
-    if (child_pid == 0)
-	{
-      // Child process
-      execve(command, tokenized, environ);
-    }
+		if (child_pid == -1)
+		{
+			free(command);
+			free_grid(tokenized);
+			return;
+			}
+		if (child_pid == 0)
+			execve(command, tokenized, environ);
+
 	free(command);
 	wait(&status);
 
-      if (WIFEXITED(status))
-        exitstatus = WEXITSTATUS(status);
+	if (WIFEXITED(status))
+		exitstatus = WEXITSTATUS(status);
 
 	else if (WIFSIGNALED(status))
 	{
-        printf("\n");
-        printerror(2, tokenized);
-    }
-    free(command);
-  }
-
-  free_grid(tokenized);
+		printf("\n");
+		printerror(2, tokenized);
+	}
+	free(command);
+	}
+	free_grid(tokenized);
 }
