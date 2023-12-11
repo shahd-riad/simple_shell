@@ -30,27 +30,19 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 		child_pid = fork();
 
 		if (child_pid == -1)
-		{
-			free(command);
-			free_grid(tokenized);
 			return;
-			}
+
 		if (child_pid == 0)
 			execve(command, tokenized, environ);
 
-	free(command);
-	wait(&status);
+		free(command);
+		wait(&status);
 
-	if (WIFEXITED(status))
+		if (WIFEXITED(status))
 		exitstatus = WEXITSTATUS(status);
-
-	else if (WIFSIGNALED(status))
-	{
-		printf("\n");
+	}
+	else
 		printerror(2, tokenized);
-	}
-	free(command);
-	}
 	(void)exitstatus;
 	free_grid(tokenized);
 }
