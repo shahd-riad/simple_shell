@@ -7,11 +7,11 @@
 
 int main(void)
 {
-	char *prompt = "shell$ ", *buffer = NULL, *mypath = NULL, 
+	char *prompt = "shell$ ", *buffer = NULL, *mypath = NULL,
 	**tokenized = NULL, *command = NULL;
 	size_t bufsize = 0;
 	int written = 0, getln_count;
-	
+
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
@@ -38,3 +38,4 @@ int main(void)
 	}
 	return (0);
 }
+
