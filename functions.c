@@ -84,7 +84,7 @@ char  *execute1(char **tokens, char *path)
 	if (stat(tokens[0], &st) == 0)
 	{
 		combined = malloc(sizeof(char) * (_strlen(tokens[0]) + 1));
-		combined = strcpy(combined, tokens[0]);
+		combined = _strcpy(combined, tokens[0]);
 		return (combined);
 	}
 	else
