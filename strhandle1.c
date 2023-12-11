@@ -90,7 +90,7 @@ int word_len(char *word)
  * @text: string
  * Return: number of words
 **/
-int count_words(char *text)
+int count_words(char *str)
 {
     int index = 0, words = 0, len = 0;
 
