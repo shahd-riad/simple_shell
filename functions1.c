@@ -39,7 +39,9 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 		}
 	}
 	else
+	{
 		printerror(2, tokenized);	
+	}
 	(void)exitstatus;
 	free_grid(tokenized);
 }
