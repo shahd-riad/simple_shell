@@ -10,7 +10,7 @@
 void execute(char **tokenized, char *command, char *mypath, char *buffer)
 {
 	int child_pid = 0, status, exitstatus = 0;
-	
+
 	if (tokenized[0] != NULL && (_strcmp(tokenized[0], "exit") == 0))
 	{
 		_puts("\n");

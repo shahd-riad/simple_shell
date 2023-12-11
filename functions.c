@@ -8,17 +8,17 @@ char *_getenv(char *name)
 {
 	char *env;
 	int i = 0;
-	
+
 	while (*environ[i] != '\0')
 	{
 		env = _strstr(environ[i], name);
-		
+
 		if (env == NULL)
 			i++;
 
 		else
 			return (env);
-		
+
 	}
 	return (NULL);
 }
@@ -37,9 +37,9 @@ char **tokenize(char *buffer)
 
 	if (tokens == 0)
 		return (NULL);
-		
+
 	token = strtok(buffer, DELIM);
-	token_list = malloc(sizeof(char*) * (tokens + 1));
+	token_list = malloc(sizeof(char *) * (tokens + 1));
 
 	while (token != NULL)
 	{
@@ -95,7 +95,7 @@ char  *execute1(char **tokens, char *path)
 
 		while (token != NULL)
 		{
-			combined = malloc(sizeof(char) * (_strlen(token) + _strlen(tokens[0]) + 1));
+			combined = malloc(sizeof(char) * (_strlen(token) + _strlen(tokens[0]) + 2));
 			combined = _strcpy(combined, token);
 			combined = _strcat(combined, tokens[0]);
 			if (stat(combined, &st) == 0)
