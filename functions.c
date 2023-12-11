@@ -9,7 +9,7 @@ char *_getenv(char *name)
 	char *env;
 	int i = 0;
 	
-	while (*environ[i] != NULL)
+	while (*environ[i] != '\0')
 	{
 		env = _strstr(environ[i], name);
 		
