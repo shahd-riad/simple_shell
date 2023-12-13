@@ -10,7 +10,7 @@ int is_builtin(char *command)
 {
 	int i;
 
-	for (i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
+	for (i = 0; i < 3; ++i)
 	{
 		if (strcmp(command, builtins[i]) == 0)
 		{
@@ -29,19 +29,19 @@ void handle_builtin(char **tokens)
 {
 	if (strcmp(tokens[0], "setenv") == 0)
 	{
-		if ( != 3)
+		if (countElements(tokens) != 3)
 			write(STDERR_FILENO, "wrong number of arguments\n", 54);
 		_setenv(tokens[1], tokens[2], 1);
 	}
 	else if (strcmp(tokens[0], "unsetenv") == 0)
 	{
-		if (sizeof(tokens) / sizeof(tokens[0]) != 2)
+		if (countElements(tokens) != 2)
 			write(STDERR_FILENO, "too many arguments\n", 54);
 		_unsetenv(tokens[1]);
 	}
 	else if (strcmp(tokens[0], "exit") == 0)
 	{
-		if (sizeof(tokens) / sizeof(tokens[0]) != 2)
+		if (countElements(tokens) != 2)
 			write(STDERR_FILENO, "too many arguments\n", 54);
 		my_exit(tokens[1]);
 	}
@@ -103,7 +103,7 @@ int _setenv(char *name, char *value, int overwrite)
 int _newenv(char *name, char *value)
 {
 	char *buff;
-	int i, j, envcount = 0;
+	int i = 0, j, envcount = 0;
 	char **new_environ;
 
 	if (!name || !value)

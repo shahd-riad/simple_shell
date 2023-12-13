@@ -51,6 +51,6 @@ void printerror(int error, char **command);
 extern char **environ;
 
 /*List of built-in commands*/
- const char *builtins[] = {"cd", "setenv", "unsetenv", "exit"};
+const char *builtins[] = {"setenv", "unsetenv", "exit"};
 
 #endif
