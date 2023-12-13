@@ -72,9 +72,10 @@ void free_grid(char **grid)
  * execute1 - function to execute child process
  * @tokens: tokenized array
  * @path: path
+ * @builtin: flag for built_ins
  * Return: void
 **/
-char  *execute1(char **tokens, char *path)
+char  *execute1(char **tokens, char *path, int *builtin)
 {
 	char *token = NULL, *combined = NULL, *temp = NULL;
 	const char s[2] = ":";
@@ -85,6 +86,7 @@ char  *execute1(char **tokens, char *path)
 	{
 		combined = malloc(sizeof(char) * (_strlen(tokens[0]) + 1));
 		combined = _strcpy(combined, tokens[0]);
+		*builtin = 0;
 		return (combined);
 	}
 	else
@@ -100,6 +102,7 @@ char  *execute1(char **tokens, char *path)
 			combined = _strcat(combined, tokens[0]);
 			if (stat(combined, &st) == 0)
 			{
+				*builtin = 0;
 				return (combined);
 			}
 			token = strtok(NULL, s);
@@ -107,5 +110,6 @@ char  *execute1(char **tokens, char *path)
 		}
 		free(temp);
 	}
-	return (NULL);
+	*builtin = 1;
+	return (tokens[0]);
 }

@@ -10,6 +10,7 @@
 void execute(char **tokenized, char *command, char *mypath, char *buffer)
 {
 	int child_pid = 0, status, exitstatus = 0;
+	int *x;
 
 	if (tokenized[0] != NULL && (_strcmp(tokenized[0], "exit") == 0))
 	{
@@ -18,8 +19,14 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer)
 		free(buffer);
 		exit(0);
 	}
-	mypath = _getenv("PATH");
-	command = execute1(tokenized, mypath);
+	mypath = _getenv("PATH"); 
+	x = 0;
+	command = execute1(tokenized, mypath, x);
+	if (x)
+	{
+		is_builtin(command);
+		handle_builtin(tokenized);
+	}
 	if (command != NULL)
 	{
 		child_pid = fork();

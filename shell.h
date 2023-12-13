@@ -16,6 +16,16 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
+int countElements(char **array);
+char *_strdup(char *str);
+char *starts_with(char *haystack, char *needle);
+int _erratoi(char *s);
+int is_builtin(char *command);
+void handle_builtin(char **tokens);
+int _setenv(char *name, char *value, int overwrite);
+int _newenv(char *name, char *value);
+int my_exit(char *arg);
+int _unsetenv(char *name);
 int _putchar(char c);
 void _puts(char *str);
 char *_strcpy(char *dest, char *src);
@@ -32,7 +42,7 @@ void execute(char **tokenized, char *command, char *mypath, char *buffer);
 char *_getenv(char *name);
 char **tokenize(char *buffer);
 void free_grid(char **grid);
-char  *execute1(char **tokens, char *path);
+char  *execute1(char **tokens, char *path, int *builtin);
 void printerror(int error, char **command);
 
 /**---Delimitator---**/
@@ -40,5 +50,8 @@ void printerror(int error, char **command);
 
 /**---Global variable environ---**/
 extern char **environ;
+
+/*List of built-in commands*/
+const char *builtins[] = {"setenv", "unsetenv", "exit"};
 
 #endif
