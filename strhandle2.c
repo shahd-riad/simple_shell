@@ -30,10 +30,10 @@ char *_strdup(char *str)
 /**
  * starts_with - Checks if a string starts with another string.
  * @haystack: The string to check.
- * @needle: The prefix to check for.
+ * @needle: The string to check for.
  *
  * Return: Pointer to the character in haystack after the prefix,
- *         or NULL if the prefix is not found.
+ *         or NULL if not found.
  */
 char *starts_with(char *haystack, char *needle)
 {
@@ -54,7 +54,7 @@ char *starts_with(char *haystack, char *needle)
 int _erratoi(char *s)
 {
 	int i = 0;
-	unsigned long int result = 0;
+	unsigned long int ret = 0;
 
 	if (*s == '+')
 		s++;
@@ -63,16 +63,16 @@ int _erratoi(char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
+			ret *= 10;
+			ret += (s[i] - '0');
+			if (ret > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
 
-	return (result);
+	return (ret);
 }
 
 /**
