@@ -12,8 +12,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#define READ_BUF 1024
-#define WRITE_BUF 1024
+#define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+#define BUF_FLUSH -1
 
 int _putchar(char c);
 void _puts(char *str);
