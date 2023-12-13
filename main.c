@@ -5,7 +5,7 @@
   * Return: 0 if success
 **/
 
-int main(int ac, char **av)
+int main(void)
 {
 	char *prompt = "shell$ ", *buffer = NULL, *mypath = NULL,
 	**tokenized = NULL, *command = NULL;
