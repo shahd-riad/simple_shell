@@ -1,20 +1,26 @@
 #include "shell.h"
-/**
-  * printerror - function to print corresponding error
-  * @error: number of error
-  * @command: command inputted
-  * Return: void
-**/
-void printerror(int error, char **command)
-{
-	if (error == 2)
-	{
-		_puts(command[0]);
-		_puts(": No such file or directory\n");
-	}
-	if (error == 1)
-	{
-		exit(EXIT_SUCCESS);
-	}
 
+/**
+ * printerror - Print error messages to stderr.
+ * @errnum: The error number.
+ * @program_name: The name of the program.
+ */
+void printerror(int errnum, char **tokenized)
+{
+	char *program_name = tokenized[0];
+
+	if (errnum == 1)
+	{
+		/* Print "command not found" error */
+		write(STDERR_FILENO, program_name, _strlen(program_name));
+		write(STDERR_FILENO, ": not found\n", 12);
+	}
+	else if (errnum == 2)
+	{
+		/* Print "executable file not found" error */
+		write(STDERR_FILENO, program_name, _strlen(program_name));
+		write(STDERR_FILENO, ": 1: ", 5);
+		write(STDERR_FILENO, program_name, _strlen(program_name));
+		write(STDERR_FILENO, ": not found\n", 12);
+	}
 }

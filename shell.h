@@ -33,7 +33,7 @@ char *_getenv(char *name);
 char **tokenize(char *buffer);
 void free_grid(char **grid);
 char  *execute1(char **tokens, char *path);
-void printerror(int error, char **command);
+void printerror(int errnum, char **tokenized);
 
 /**---Delimitator---**/
 #define DELIM " ,!¡¿?\'\"\n\t"
