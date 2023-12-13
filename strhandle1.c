@@ -54,8 +54,8 @@ char *_strchr(char *s, char c)
 /**
  * word_len - function to count number of letters of
  * each word
- * @str: word
- * Return: number of letters of tje word
+ * @word: word
+ * Return: number of letters of the word
 **/
 int word_len(char *word)
 {
@@ -70,7 +70,7 @@ int word_len(char *word)
 }
 /**
  * count_words - functin to count number of words
- * @text: string
+ * @str: text entered
  * Return: number of words
 **/
 int count_words(char *str)
